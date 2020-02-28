@@ -1,0 +1,80 @@
+feature che l'applicazione deve avere:
+
+=== bugtracker, programma per tenere traccia dei TODO dell'applicazione che si sta sviluppando e per segnalare bug e problemi nel codice
+
+- interfaccia utente
+- login (accesso come ospite?)
+	+ gestione accessi in modo sicuro con third-party app come Auth0 o firebase
+- differenza utenti tra gestore progetto (con eventuali co-gestori) e developer
+	+ il gestore puo aggiungere e rimuovere developer
+	+ i developer possono aggiungere o rimuovere items dal bugtracker
+- sistema di log per tenere traccia dei bug risolti e delle persone aggiunte al progetto
+- mantenere una documentazione adeguata e specificare le parti che coinvolgono i principali campi del progetto, esempio,
+	e' stato scelto il db x perche' y, il login viene gestito in modo sicuro perche' ... ecc..
+- possibilita di mandare private messagges ad altri membri del progetto
+- bacheca in cui i gestori del progetto possono elencare le feature che necessitano di essere aggiute, bug che devono essere subito risolti ecc
+
+
+++ futuro update, rendere l'app una web app su server come amazon web service per mantenerla sempre online (ha senso renderla web app dopo? o meglio farlo da subito?)
+++ monetizzare la pagina web
+
+
+BUGTRACKER
+
+Scopo principale:
+	- segnalare bug e verificarne il progresso
+Scopo secondario:
+	- segnalare nuove feature da implementare (TODO)
+	
+Utenti:
+	- ospite
+		può visualizzare i bug
+	- utente normale
+		precedenti funzionalità
+		può inserire nuovi bug
+		può richiedere nuove feature
+	- developer
+		precedenti funzionalità
+		può creare creare nuovi branch del progetto (eventualmente sarà solo un campo da specificare quando si inserisce. Utile durante lo sviluppo)
+		può prendersi in carico bug
+		può prendersi in carico nuove feature
+		può risolvere bug
+		può inserire nuove feature
+	- owner
+		precedenti funzionalità
+		può assegnare nuovi developer al progetto
+		può creare nuovi progetti
+	- master
+		precedenti funzionalità
+		possiede il banhammer per bloccare progetti e utenti
+	
+Bug:
+	- gravità
+		critico: il programma crasha
+		normale: il programma ha un comportamento anomalo
+		basso: errore grafico
+	- riproducibilità
+		se il bug non è riproducibile inserire quanti più dati possibili
+		
+Feature:
+	- tipologia: mancanza (tipo le password in chiaro sono una mancanza) o miglioramenti (la possibilità di cancellare feature per l'utente che lo richiede è un miglioramento)
+	- descrizione
+		
+History:
+	- ogni bug o feature deve avere una history che indica i possibili "commit" 
+	
+Progetto:
+	- owner
+	- developer associati
+	- bug associati
+	- feature associate
+	- visibilità (pubblico o privato)
+	
+Interfacce:
+	- bacheca di ricerca per progetto per nome (se l'utente è loggato metterà in evidenza i progetti che corrispondono al nome e a cui partecipa in qualsiasi modo)
+	- bacheca bug (colori diversi a seconda della gravità e se son risolti. Possibilità di filtrare eventualmente)
+	- bacheca feature (possiblità di filtrare eventualmente)
+	- pagina descrittiva per bug o feature (con possibilità di modifica di alcuni parametri come gravità o altri/chiusura/commit)
+	- chat di gruppo con tutti i membri del progetto (eventualmente sottochat filtrate per il branch. Niente messaggi privati)
+	- login, profilo, statistiche
+	- segnalazione di bug o feature

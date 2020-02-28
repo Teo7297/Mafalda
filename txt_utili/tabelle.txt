@@ -1,0 +1,87 @@
+Users: serve memorizzare forse solo email e username, tutto tranne la password in pratica, quella è gestita da auth0 
+
+personnel: role, username, working on, social (sotto categoria con ad esempio likedin, github, facebook..)
+
+Projects: name, description, github link, release state, (more info?)
+
+Bugs: priority, tags, description, visibility(invisible (solo chi l'ha messo puo vederlo), project-private, public), state(someone is working on it and who, free, blocked (chiunque puo mettere o togliere i blocchi, messi in caso serva la risoluzione di altri bug o la creazione di feature), blocked reason , history (hash commits?), riproducibility 
+
+Features: priority, description, requested by, time remaining(visible with high priority, or maybe priority changes based on time set?)
+
+Logs: bugs resolved, personnel added/removed, promotions, feature requested
+
+
+Commenti:
+	ingloberei bugs e feature in projects ma vanno comunque definiti
+	per i bug la visibilità la ridimensionerei. Sempre relativo al progetto o è visibile o non lo è
+	farei un elenco sia di chi ci sta lavorando ma anche di chi banalmente è interessato alla sua conclusione
+	free o blocked non l'ho compreso troppo. Se c'è bisogno di chiudere un altro bug prima di concludere quello corrente, si chiudono insieme facendo	        riferimento nel commit conclusivo
+	i logs penso si possano fondere nei vari campi senza problemi
+
+
+Users:
+	email: String (univoco)
+	username: String (univoco)
+
+Personnel:
+	username: String (fk su username di Users)
+	role: Role
+	when_assigned: Timestamp (quando è stato assegnato al progetto)
+	when_left: Timestamp (quando è stato rimosso dal progetto)
+
+
+Projects:
+	owner: String (fk su username di Users)
+	name: String
+	description: String (opzionale)
+	referral links: List[String] (github, gitlab, altro - opzionale)
+	personnel: List[Personnel] (chi è stato assegnato al progetto)
+	bugs: List[Bug]
+	features: List[Feature]
+
+
+Priority: indica un livello di priorità (non necessariamente un doc. Magari solo ad uso interno su Spring)
+	code: Integer
+	name: String (alta, bassa, ecc..)
+
+
+Role: essenzialmente un enum (non necessariamente un doc. Magari solo ad uso interno su Spring)
+	name: String
+		Tester
+		Developer
+		Owner
+
+
+Commit:
+	username: String (fk su username di Users)
+	content: String (contenuto del messaggio. Non necessariamente sarà di un Dev. Chiunque può fare commit)
+	relevance: String (se il commit è di un utente esterno al progetto, sarà bassa. Utile per mettere in evidenza a schermo i messaggi dei devs)
+	when: Timestamp
+
+
+Bug: non un documento vero
+	priority: Integer (relativo al code di Priority)
+	tags: List[String] (opzionale con default a [])
+	description: String
+	when: Timestamp
+	visibility: Boolean (un bug se inserito da dev o più in alto, è invisibile di default)
+	branch: String (utile per verificare eventualmente anche la versione del progetto considerata, non solo prod o dev)
+	source: String (fk su username di Users. Chi ha creato il bug)
+	steps: List[String] (passi necessari per riprodurre il bug. Eventualmente anche solo una stringa)
+	manteiners: List[Personnel] (chi se ne sta occupando)
+	followers: List[String] (fk su username di Users. Chi è interessato al bug)
+	history: List[Commit] (eventuali commenti sul bug)
+	closed: Boolean
+
+
+Feature: non un documento vero
+	priority: Integer (relativo al code di Priority)
+	description: String
+	requested_by: String (fk su username di Users)
+	when: Timestamp
+	visibility: Boolean (una feature non è per branch ma per project. Tuttavia se richiesta da dev o più in alto, è invisibile di default)
+	estimate_deploying: Timestamp (oppure qualcosa che indica tipo in che versione)
+	manteiners: List[Personnel] (chi se ne sta occupando)
+	followers: List[String] (fk su username di Users. Chi è interessato al bug)
+	history: List[Commit] (eventuali commenti sulla feature)
+	closed: Boolean
