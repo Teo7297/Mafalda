@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "name",
+    "type": "java.lang.String",
+    "description": "Project name"
+  },
+  {
+    "name": "version",
+    "type": "java.lang.String",
+    "description": "Project version"
+  },
+  {
+    "name": "contributors",
+    "type": "java.util.Arrays",
+    "description": "Project contributors list"
+  }
+]}
