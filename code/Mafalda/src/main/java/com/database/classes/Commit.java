@@ -25,4 +25,26 @@ public class Commit {
 		this.priority = priority;
 		this.date = date;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public Priority getPriority() {
+		return priority;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+	
+	
 }

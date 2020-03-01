@@ -34,4 +34,58 @@ public class Project {
 		this.bugs = bugs;
 		this.features = features;
 	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public List<String> getReferral() {
+		return referral;
+	}
+
+	public void setReferral(List<String> referral) {
+		this.referral = referral;
+	}
+
+	public List<Personnel> getPersonnel() {
+		return personnel;
+	}
+
+	public void setPersonnel(List<Personnel> personnel) {
+		this.personnel = personnel;
+	}
+
+	public List<Bug> getBugs() {
+		return bugs;
+	}
+
+	public void setBugs(List<Bug> bugs) {
+		this.bugs = bugs;
+	}
+
+	public List<Feature> getFeatures() {
+		return features;
+	}
+
+	public void setFeatures(List<Feature> features) {
+		this.features = features;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public String getOwner() {
+		return owner;
+	}
+
+	public String getName() {
+		return name;
+	}
+	
+	
 }

@@ -20,4 +20,34 @@ public class Personnel {
 		this.assignment = assignment;
 		this.removed = removed;
 	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
+	public Date getRemoved() {
+		return removed;
+	}
+
+	public void setRemoved(Date removed) {
+		this.removed = removed;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public Date getAssignment() {
+		return assignment;
+	}
+	
+	
 }

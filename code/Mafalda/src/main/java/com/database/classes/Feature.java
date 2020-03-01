@@ -36,7 +36,7 @@ public class Feature {
 		
 		this.priority = priority;
 		this.description = description;
-		this.username = user.getUsername;
+		this.username = user.getUsername();
 		this.registration = registration;
 		this.visible = visible;
 		this.deployment = deployment;
@@ -44,4 +44,74 @@ public class Feature {
 		this.history = history;
 		this.state = state;
 	}
+
+	public Priority getPriority() {
+		return priority;
+	}
+
+	public void setPriority(Priority priority) {
+		this.priority = priority;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public boolean isVisible() {
+		return visible;
+	}
+
+	public void setVisible(boolean visible) {
+		this.visible = visible;
+	}
+
+	public Date getDeployment() {
+		return deployment;
+	}
+
+	public void setDeployment(Date deployment) {
+		this.deployment = deployment;
+	}
+
+	public List<Personnel> getDevelopers() {
+		return developers;
+	}
+
+	public void setDevelopers(List<Personnel> developers) {
+		this.developers = developers;
+	}
+
+	public List<Commit> getHistory() {
+		return history;
+	}
+
+	public void setHistory(List<Commit> history) {
+		this.history = history;
+	}
+
+	public State getState() {
+		return state;
+	}
+
+	public void setState(State state) {
+		this.state = state;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public Date getRegistration() {
+		return registration;
+	}
+	
+	
 }
