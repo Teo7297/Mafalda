@@ -36,7 +36,11 @@ public class Feature {
 		
 		this.priority = priority;
 		this.description = description;
+<<<<<<< HEAD
 		this.username = user.getUsername();
+=======
+		this.username = user.getUsername;
+>>>>>>> 130f2bd6133cd3d82cf1246584a703deddb91ec7
 		this.registration = registration;
 		this.visible = visible;
 		this.deployment = deployment;
@@ -44,6 +48,7 @@ public class Feature {
 		this.history = history;
 		this.state = state;
 	}
+<<<<<<< HEAD
 
 	public Priority getPriority() {
 		return priority;
@@ -114,4 +119,6 @@ public class Feature {
 	}
 	
 	
+=======
+>>>>>>> 130f2bd6133cd3d82cf1246584a703deddb91ec7
 }

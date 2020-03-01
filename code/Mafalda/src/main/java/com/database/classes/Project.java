@@ -34,6 +34,7 @@ public class Project {
 		this.bugs = bugs;
 		this.features = features;
 	}
+<<<<<<< HEAD
 
 	public String getDescription() {
 		return description;
@@ -88,4 +89,6 @@ public class Project {
 	}
 	
 	
+=======
+>>>>>>> 130f2bd6133cd3d82cf1246584a703deddb91ec7
 }

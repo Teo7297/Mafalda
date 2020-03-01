@@ -25,6 +25,7 @@ public class Commit {
 		this.priority = priority;
 		this.date = date;
 	}
+<<<<<<< HEAD
 
 	public int getId() {
 		return id;
@@ -47,4 +48,6 @@ public class Commit {
 	}
 	
 	
+=======
+>>>>>>> 130f2bd6133cd3d82cf1246584a703deddb91ec7
 }

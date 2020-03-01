@@ -20,6 +20,7 @@ public class Personnel {
 		this.assignment = assignment;
 		this.removed = removed;
 	}
+<<<<<<< HEAD
 
 	public Role getRole() {
 		return role;
@@ -50,4 +51,6 @@ public class Personnel {
 	}
 	
 	
+=======
+>>>>>>> 130f2bd6133cd3d82cf1246584a703deddb91ec7
 }
