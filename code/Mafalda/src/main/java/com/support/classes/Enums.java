@@ -14,4 +14,15 @@ public class Enums {
 		HIGH,
 		LOW
 	}
+	
+	public enum Priority {
+		HIGH(2),
+		LOW(1);
+		
+		private int code;
+		
+		private Priority(int code) {
+			this.code = code;
+		}
+	}
 }
