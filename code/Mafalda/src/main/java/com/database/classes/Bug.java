@@ -54,7 +54,6 @@ public class Bug {
 		this.state = state;
 		
 	}
-<<<<<<< HEAD
 	
 	public Priority getPriority() {
 		return priority;
@@ -147,6 +146,4 @@ public class Bug {
 	public String getUsername() {
 		return username;
 	}
-=======
->>>>>>> 130f2bd6133cd3d82cf1246584a703deddb91ec7
 }
