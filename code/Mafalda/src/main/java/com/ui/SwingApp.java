@@ -6,6 +6,9 @@ import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
 
 import java.awt.Container;
 import java.awt.EventQueue;
@@ -24,12 +27,35 @@ public class SwingApp extends JFrame {
     private void initUI() {
     	
     	JButton quitButton = new JButton("Quit");
-
         quitButton.addActionListener((ActionEvent event) -> {
             System.exit(0);
         });
+        
+   
+        
+        //create a panel 
+        JPanel panel =new JPanel(); 
+          
+        //create a new label 
+        JLabel label= new JLabel("select the day of the week"); 
+        panel.add(label);  
+        //String array to store weekdays 
+        String[] week= { "Monday","Tuesday","Wednesday", 
+                         "Thursday","Friday","Saturday","Sunday"}; 
+          
+        //create list 
+        JList<Object> list= new JList<Object>(week); 
+          
+        //set a selected index 
+        list.setSelectedIndex(0); 
+        
+          
+        //add list to panel 
+        panel.add(list); 
+       
+    
 
-        createLayout(quitButton);
+        createLayout(quitButton, panel);
 
         setTitle("Quit button");
         setSize(1000, 800);
@@ -44,14 +70,18 @@ public class SwingApp extends JFrame {
         pane.setLayout(gl);
 
         gl.setAutoCreateContainerGaps(true);
-
+        
+        
         gl.setHorizontalGroup(gl.createSequentialGroup()
-                .addComponent(arg[0])
+                .addComponent(arg[0]).addComponent(arg[1])
         );
 
         gl.setVerticalGroup(gl.createSequentialGroup()
-                .addComponent(arg[0])
+                .addComponent(arg[0]).addComponent(arg[1])
         );
+       
+        
+        
     }
 
     public static void main(String[] args) {
