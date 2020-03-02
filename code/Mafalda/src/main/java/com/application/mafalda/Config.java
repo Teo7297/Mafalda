@@ -8,6 +8,7 @@ import com.mongodb.MongoClient;
 @Configuration
 public class Config {
 	public @Bean MongoClient mongoClient() {
-	       return new MongoClient("66.119.18:27017");
+	       /*return new MongoClient("66.119.18:27017");*/
+		return new MongoClient("localhost");
 	   }
 }

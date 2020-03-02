@@ -3,6 +3,10 @@ package com.ui;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import javax.swing.JTextField;
+import javax.swing.JComboBox;
 
 public class LoginPage {
 
@@ -36,7 +40,7 @@ public class LoginPage {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 467, 315);
+		frame.setBounds(100, 100, 545, 493);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
