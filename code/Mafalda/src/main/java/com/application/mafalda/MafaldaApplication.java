@@ -24,12 +24,6 @@ import com.database.classes.User;
  */
 
 @SpringBootApplication
-@ComponentScan(basePackages = "com.auth0")
-@EnableAutoConfiguration
-@PropertySources({
-		@PropertySource("classpath:application.properties"),
-		@PropertySource("classpath:auth0.properties")
-})
 public class MafaldaApplication {
 
 	public static void main(String[] args) {
