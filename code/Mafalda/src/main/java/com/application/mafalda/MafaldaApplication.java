@@ -1,7 +1,17 @@
 package com.application.mafalda;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
+import org.springframework.data.mongodb.core.MongoOperations;
+
+import com.database.classes.Bug;
+import com.database.classes.User;
 
 /*
  * 
@@ -14,10 +24,25 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 
 @SpringBootApplication
+@ComponentScan(basePackages = "com.auth0")
+@EnableAutoConfiguration
+@PropertySources({
+		@PropertySource("classpath:application.properties"),
+		@PropertySource("classpath:auth0.properties")
+})
 public class MafaldaApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MafaldaApplication.class, args);
+		
+		try(
+		AnnotationConfigApplicationContext ctx = 
+                new AnnotationConfigApplicationContext(Config.class);		
+		){
+			MongoOperations mongoOperation = 
+                (MongoOperations) ctx.getBean("mongoTemplate");
+			}
+		
 	}
 
 }
