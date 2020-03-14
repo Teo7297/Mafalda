@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.data.annotation.Id;
 
-import com.support.classes.Priority;
+import com.support.classes.Enums.Priority;
 import com.support.classes.Enums.State;
 
 public class Feature {
@@ -22,6 +22,8 @@ public class Feature {
 	private List<Personnel> developers;
 	private List<Commit> history;
 	private State state;
+	private int projectId;
+	
 	
 	public Feature(
 			Priority priority,
@@ -32,7 +34,8 @@ public class Feature {
 			Date deployment,
 			List<Personnel> developers,
 			List<Commit> history,
-			State state) {
+			State state,
+			int projectId) {
 		
 		this.priority = priority;
 		this.description = description;
@@ -44,6 +47,8 @@ public class Feature {
 		this.developers = developers;
 		this.history = history;
 		this.state = state;
+		this.projectId = projectId;
+		
 	}
 
 
@@ -113,6 +118,9 @@ public class Feature {
 
 	public Date getRegistration() {
 		return registration;
+	}
+	public int getProjectId() {
+		return projectId;
 	}
 	
 

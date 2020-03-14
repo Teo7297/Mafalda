@@ -25,4 +25,9 @@ public class Enums {
 			this.code = code;
 		}
 	}
+	
+	public enum ErrorCode{
+		//add error codes
+	}
+	
 }

@@ -1,5 +1,6 @@
 package com.database.classes;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
@@ -22,17 +23,16 @@ public class Project {
 			String name,
 			String description,
 			List<String> referral,
-			List<Personnel> personnel,
-			List<Bug> bugs,
-			List<Feature> features){
+			List<Personnel> personnel
+			){
 		
 		this.owner = owner.getUsername();
 		this.name = name;
 		this.description = description;
 		this.referral = referral;
 		this.personnel = personnel;
-		this.bugs = bugs;
-		this.features = features;
+		this.bugs = new ArrayList<>();
+		this.features = new ArrayList<>();
 	}
 
 

@@ -29,13 +29,7 @@ public class MafaldaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MafaldaApplication.class, args);
 		
-		try(
-		AnnotationConfigApplicationContext ctx = 
-                new AnnotationConfigApplicationContext(Config.class);		
-		){
-			MongoOperations mongoOperation = 
-                (MongoOperations) ctx.getBean("mongoTemplate");
-			}
+		
 		
 	}
 

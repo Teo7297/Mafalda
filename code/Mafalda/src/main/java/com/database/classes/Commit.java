@@ -2,7 +2,7 @@ package com.database.classes;
 
 import java.util.Date;
 import org.springframework.data.annotation.Id;
-import com.support.classes.Priority;
+import com.support.classes.Enums.Priority;
 
 public class Commit {
 	
