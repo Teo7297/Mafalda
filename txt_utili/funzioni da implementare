@@ -1,0 +1,40 @@
+query:
+query login {username, psw} => token
+token validity check  {server has token validity time} => t/f
+registration query {} => er codes     (aggiungere tutti i tipi di err tra gli enum)
+get projects {user} => list[p1,p2-....]    =>>> abilita la nuova pagina del progetto
+il proj è un doc che contiene gli id di tutte le collection a cui è necessario accedere
+
+segue
+
+get Bugs, get Feats,....
+
+addBug, addFeature ....
+
+getUser(email) => User
+
+addPers(pers) -> adds a personnel
+
+
+
+
+funzioni:
+
+generazioni token login {token, exp. date, userID/User obj}
+send email? (check framworks available)
+
+
+createPersonnel(getUser(email), fields..) => new personnel with user fields
+
+getCommitHash [lista di commenti dei commit] (magari in futuro aggiungere uno script per recuperare i commenti da git)
+
+
+vari toString()
+
+
+
+
+
+
+altro:
+per ogni user type c'è una UI diversa  (developer, owner)
