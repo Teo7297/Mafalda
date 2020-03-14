@@ -14,11 +14,10 @@ public class Personnel {
 	private Date assignment;
 	private Date removed;
 	
-	public Personnel(User user, Role role, Date assignment, Date removed) {
+	public Personnel(User user, Role role, Date assignment) {
 		this.username = user.getUsername();
 		this.role = role;
 		this.assignment = assignment;
-		this.removed = removed;
 	}
 
 	public Role getRole() {
