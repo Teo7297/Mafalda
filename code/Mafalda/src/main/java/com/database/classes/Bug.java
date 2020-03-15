@@ -58,6 +58,12 @@ public class Bug {
 		
 	}
 	
+	
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public Priority getPriority() {
 		return priority;
 	}

@@ -26,6 +26,7 @@ public class MafaldaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MafaldaApplication.class, args);
 		QueriesI.connect(); //creates database query controller
+		
 		QueriesI database = new QueriesI();
 		database.dropCollection(User.class);
 		database.dropCollection(Project.class);

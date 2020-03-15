@@ -19,6 +19,12 @@ public class Personnel {
 		this.role = role;
 		this.assignment = assignment;
 	}
+	
+	
+	
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public Role getRole() {
 		return role;
