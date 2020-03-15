@@ -21,9 +21,9 @@ public class Bug {
 	private boolean visible;
 	private String branch;
 	private String username;
-	private List<Personnel> maintainers;
+	private List<Integer> personnelIds;
 	private List<String> interested;
-	private List<Commit> history;
+	private List<Integer> commitIds;
 	private State state;
 	private int projectId;
 	
@@ -36,9 +36,9 @@ public class Bug {
 			 boolean visible,
 			 String branch,
 			 User user,
-			 List<Personnel> maintainers,
+			 List<Integer> personnelIds,
 			 List<String> interested,
-			 List<Commit> history,
+			 List<Integer> commitIds,
 			 State state,
 			 int projectId) {
 		
@@ -50,9 +50,9 @@ public class Bug {
 		this.visible = visible;
 		this.branch = branch;
 		this.username = user.getUsername();
-		this.maintainers = maintainers;
+		this.personnelIds = personnelIds;
 		this.interested = interested;
-		this.history = history;
+		this.commitIds = commitIds;
 		this.state = state;
 		this.projectId = projectId;
 		
@@ -106,12 +106,12 @@ public class Bug {
 		this.branch = branch;
 	}
 
-	public List<Personnel> getMaintainers() {
-		return maintainers;
+	public List<Integer> getMaintainers() {
+		return personnelIds;
 	}
 
-	public void setMaintainers(List<Personnel> maintainers) {
-		this.maintainers = maintainers;
+	public void setMaintainers(List<Integer> personnelIds) {
+		this.personnelIds = personnelIds;
 	}
 
 	public List<String> getInterested() {
@@ -122,12 +122,12 @@ public class Bug {
 		this.interested = interested;
 	}
 
-	public List<Commit> getHistory() {
-		return history;
+	public List<Integer> getHistory() {
+		return commitIds;
 	}
 
-	public void setHistory(List<Commit> history) {
-		this.history = history;
+	public void setHistory(List<Integer> commitIds) {
+		this.commitIds = commitIds;
 	}
 
 	public State getState() {

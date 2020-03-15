@@ -15,12 +15,12 @@ public class Commit {
 	private Date date;
 	
 	public Commit(
-			User user,
+			String username,
 			String message,
 			Priority priority,
 			Date date) {
 		
-		this.username = user.getUsername();
+		this.username = username;
 		this.message = message;
 		this.priority = priority;
 		this.date = date;

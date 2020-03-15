@@ -10,29 +10,31 @@ public class Project {
 	@Id
 	private int id;
 	
-	private String owner;
+	private String owner;		//username
 	private String name;
 	private String description;
 	private List<String> referral;
 	private List<Personnel> personnel;
-	private List<Bug> bugs;
-	private List<Feature> features;
+	//private List<Bug> bugs;
+	//private List<Feature> features;
+	//private List<Commit> commits;
 	
 	public Project(
-			User owner,
+			String owner,
 			String name,
 			String description,
 			List<String> referral,
 			List<Personnel> personnel
 			){
 		
-		this.owner = owner.getUsername();
+		this.owner = owner;
 		this.name = name;
 		this.description = description;
 		this.referral = referral;
 		this.personnel = personnel;
-		this.bugs = new ArrayList<>();
-		this.features = new ArrayList<>();
+		//this.bugs = new ArrayList<>();
+		//this.features = new ArrayList<>();
+		//this.commits = new ArrayList<>();
 	}
 
 
@@ -60,7 +62,7 @@ public class Project {
 		this.personnel = personnel;
 	}
 
-	public List<Bug> getBugs() {
+	/*public List<Bug> getBugs() {
 		return bugs;
 	}
 
@@ -72,9 +74,17 @@ public class Project {
 		return features;
 	}
 
+	public void setCommits(List<Commit> commits) {
+		this.commits = commits;
+	}
+	
+	public List<Commit> getCommits() {
+		return commits;
+	}
+
 	public void setFeatures(List<Feature> features) {
 		this.features = features;
-	}
+	}*/
 
 	public int getId() {
 		return id;
@@ -87,6 +97,7 @@ public class Project {
 	public String getName() {
 		return name;
 	}
+	
 	
 	
 

@@ -7,7 +7,7 @@ public class User {
 
 	private String username;
 	private String email;
-	private List<Project> projects;
+	private List<Integer> projects;
 	
 	public User(String username, String email) {
 		this.username = username;
@@ -23,12 +23,12 @@ public class User {
 		return email;
 	}
 	
-	public void addProject(Project project) {
-		projects.add(project);
+	public void addProject(int projectId) {
+		projects.add(projectId);
 	}
 	
-	public void removeProject(Project project) {
-		projects.remove(project);
+	public void removeProject(int projectId) {
+		projects.remove(projectId);
 	}
 
 }

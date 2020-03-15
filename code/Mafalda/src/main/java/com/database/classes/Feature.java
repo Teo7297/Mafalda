@@ -19,8 +19,8 @@ public class Feature {
 	private Date registration;
 	private boolean visible;
 	private Date deployment;
-	private List<Personnel> developers;
-	private List<Commit> history;
+	private List<Integer> personnelIds;
+	private List<Integer> commitsIds;
 	private State state;
 	private int projectId;
 	
@@ -28,24 +28,23 @@ public class Feature {
 	public Feature(
 			Priority priority,
 			String description,
-			User user,
+			String username,
 			Date registration,
 			boolean visible,
 			Date deployment,
-			List<Personnel> developers,
-			List<Commit> history,
+			List<Integer> personnelIds,
+			List<Integer> commitsIds,
 			State state,
 			int projectId) {
 		
 		this.priority = priority;
 		this.description = description;
-		this.username = user.getUsername();
-		this.username = user.getUsername();
+		this.username = username;
 		this.registration = registration;
 		this.visible = visible;
 		this.deployment = deployment;
-		this.developers = developers;
-		this.history = history;
+		this.personnelIds = personnelIds;
+		this.commitsIds = commitsIds;
 		this.state = state;
 		this.projectId = projectId;
 		
@@ -84,20 +83,20 @@ public class Feature {
 		this.deployment = deployment;
 	}
 
-	public List<Personnel> getDevelopers() {
-		return developers;
+	public List<Integer> getDevelopers() {
+		return personnelIds;
 	}
 
-	public void setDevelopers(List<Personnel> developers) {
-		this.developers = developers;
+	public void setDevelopers(List<Integer> developers) {
+		this.personnelIds = developers;
 	}
 
-	public List<Commit> getHistory() {
-		return history;
+	public List<Integer> getHistory() {
+		return commitsIds;
 	}
 
-	public void setHistory(List<Commit> history) {
-		this.history = history;
+	public void setHistory(List<Integer> history) {
+		this.commitsIds = history;
 	}
 
 	public State getState() {

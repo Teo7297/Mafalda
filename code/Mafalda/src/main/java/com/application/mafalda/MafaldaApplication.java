@@ -12,6 +12,7 @@ import org.springframework.data.mongodb.core.MongoOperations;
 
 import com.database.classes.Bug;
 import com.database.classes.User;
+import com.database.queries.QueriesI;
 
 /*
  * 
@@ -28,7 +29,7 @@ public class MafaldaApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MafaldaApplication.class, args);
-		
+		QueriesI.connect(); //creates database query controller
 		
 		
 	}

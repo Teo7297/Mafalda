@@ -14,8 +14,8 @@ public class Personnel {
 	private Date assignment;
 	private Date removed;
 	
-	public Personnel(User user, Role role, Date assignment) {
-		this.username = user.getUsername();
+	public Personnel(String username, Role role, Date assignment) {
+		this.username = username;
 		this.role = role;
 		this.assignment = assignment;
 	}

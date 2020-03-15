@@ -11,11 +11,12 @@ public interface Queries {
 	public Project getProject(int projectId);
 	public Bug[] getBugs(int projectId);
 	public User getUser(String email);
+	public User getUser(int id);
 	public Feature[] getFeatures(int projectId);
 	public Commit[] getCommits(int projectId);
 
 	//setters
-	public void addUSer(User user);
+	public void addUser(User user);
 	public void addBug(Bug bug);
 	public void addFeature(Feature feature);
 	public void addCommit(Commit commit);
@@ -23,10 +24,14 @@ public interface Queries {
 	
 	//removers
 	public void removeUser(User user);
-	public void removeBugs(int projectId);
-	public void removeFeatures(int projectId);
+	public void removeAllBugs(int projectId);
+	public void removeBug(Bug bug);
+	public void removeAllFeatures(int projectId);
+	public void removeAllProjects();
+	public void removeFeature(Feature feature);
 	public void removeProject(Project project);
-	public void removeCommits(int projectId);
+	public void removeAllCommits(int projectId);
+	public void removeCommit(Commit commit);
 	
 	//updaters
 	public void updateUser(int id, User newUser);
