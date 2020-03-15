@@ -10,6 +10,7 @@ public class Projects {
 	public static ArrayList<Project> projects;
 	
 	public static void generate(int population) {
+		projects = new ArrayList<>();
 		RandomUtils random = new RandomUtils();
 		for (int i = 0; i < population; i++) {
 			User owner = random.randomElement(Users.users);
@@ -20,7 +21,9 @@ public class Projects {
 			for (int j = 0; j < random.randomInt(2); j++) {
 				personnel.add(random.randomElement(Personnels.personnels));
 			}
-			projects.add(new Project(owner, name, description, referral, personnel));
+			Project p = new Project(owner.getUsername(), name, description, referral, personnel);
+			p.setId(i + 1);
+			projects.add(p);
 		}
 	}
 

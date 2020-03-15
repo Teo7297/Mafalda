@@ -40,4 +40,6 @@ public interface Queries {
 	public void updateProject(int projectId, Project project);
 	public void updateCommits(int projectId, Commit[] commits);
 	
+	public void dropCollection(Class<?> cls);
+	
 }

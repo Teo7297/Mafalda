@@ -31,6 +31,9 @@ public class RandomUtils extends Utils {
      * @return un numero intero pseudo casuale
      */
     public int randomInt(int minValue, int maxValue) {
+    	if (minValue == maxValue) {
+    		return minValue;
+    	}
         return random.nextInt(minValue, maxValue);
     }
 

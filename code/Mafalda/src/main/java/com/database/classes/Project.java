@@ -1,6 +1,5 @@
 package com.database.classes;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
@@ -88,6 +87,10 @@ public class Project {
 
 	public int getId() {
 		return id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getOwner() {
