@@ -65,6 +65,8 @@ public class MafaldaApplication {
 		System.out.println(database.getBugs(project.getId()));
 		
 		database.removeProject(project);
+		
+		System.out.println(database.getUser("notValid"));
 
 	}
 

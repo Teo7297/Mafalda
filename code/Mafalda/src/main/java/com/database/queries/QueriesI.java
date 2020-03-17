@@ -7,6 +7,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 
 import com.application.mafalda.Config;
 import com.database.classes.Bug;
@@ -31,14 +32,7 @@ public class QueriesI implements Queries {
 
 	@Override
 	public Project getProject(ObjectId projectId) {
-		query = new Query();
-		query.addCriteria(Criteria.where("_id").is(projectId));
-		List<Project> result = (List<Project>) mongoOperation.find(query, Project.class);
-		if (result.size() == 1) {
-			return result.get(0);
-		} else {
-			return null;
-		}
+		return mongoOperation.findById(projectId, Project.class);
 	}
 
 	@Override
@@ -46,50 +40,35 @@ public class QueriesI implements Queries {
 		query = new Query();
 		query.addCriteria(Criteria.where("projectId").is(projectId));
 		List<Bug> result = (List<Bug>) mongoOperation.find(query, Bug.class);
-		Bug[] resArray = new Bug[result.size()]; 
-		return result.toArray(resArray);
+		return result.toArray(new Bug[result.size()]);
 	}
 
 	@Override
 	public User getUser(String email) {
 		query = new Query();
 		query.addCriteria(Criteria.where("email").is(email));
-		List<User> result = (List<User>) mongoOperation.find(query, User.class);
-		if (result.size() == 1) {
-			return result.get(0);
-		} else {
-			return null;
-		}
+		return mongoOperation.findOne(query, User.class);	
 	}
 
 	@Override
 	public User getUser(ObjectId id) {
-		query = new Query();
-		query.addCriteria(Criteria.where("_id").is(id));
-		List<User> result = (List<User>) mongoOperation.find(query, User.class);
-		if (result.size() == 1) {
-			return result.get(0);
-		} else {
-			return null;
-		}
+		return mongoOperation.findById(id, User.class);
 	}
 
 	@Override
 	public Feature[] getFeatures(ObjectId projectId) {
 		query = new Query();
-		query.addCriteria(Criteria.where("_id").is(projectId));
+		query.addCriteria(Criteria.where("projectId").is(projectId));
 		List<Feature> result = (List<Feature>) mongoOperation.find(query, Feature.class);
-		Feature[] resArray = new Feature[result.size()];
-		return result.toArray(resArray);
+		return result.toArray(new Feature[result.size()]);
 	}
 
 	@Override
 	public Commit[] getCommits(ObjectId projectId) {
 		query = new Query();
-		query.addCriteria(Criteria.where("_id").is(projectId));
+		query.addCriteria(Criteria.where("projectId").is(projectId));
 		List<Commit> result = (List<Commit>) mongoOperation.find(query, Commit.class);
-		Commit[] resArray = new Commit[result.size()];
-		return result.toArray(resArray);
+		return result.toArray(new Commit[result.size()]);
 	}
 
 	@Override
@@ -168,9 +147,7 @@ public class QueriesI implements Queries {
 
 	@Override
 	public void updateUser(ObjectId id, User newUser) {
-		query = new Query();
-		query.addCriteria(Criteria.where("_id").is(id));
-		mongoOperation.findAndReplace(query, newUser);
+		// TODO add
 	}
 
 	@Override
