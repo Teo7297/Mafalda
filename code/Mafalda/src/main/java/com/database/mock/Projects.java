@@ -22,7 +22,6 @@ public class Projects {
 				personnel.add(random.randomElement(Personnels.personnels));
 			}
 			Project p = new Project(owner.getUsername(), name, description, referral, personnel);
-			p.setId(i + 1);
 			projects.add(p);
 		}
 	}
