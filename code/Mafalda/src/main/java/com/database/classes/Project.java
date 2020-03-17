@@ -19,10 +19,7 @@ public class Project {
 	private String description;
 	private List<String> referral;
 	private List<Personnel> personnel;
-	//private List<Bug> bugs;
-	//private List<Feature> features;
-	//private List<Commit> commits;
-	
+
 	/**
 	 * @param owner
 	 * @param name
@@ -44,9 +41,6 @@ public class Project {
 		this.referral = referral;
 		this.personnel = personnel;
 		this.id = new ObjectId();
-		//this.bugs = new ArrayList<>();
-		//this.features = new ArrayList<>();
-		//this.commits = new ArrayList<>();
 	}
 
 
@@ -73,30 +67,6 @@ public class Project {
 	public void setPersonnel(List<Personnel> personnel) {
 		this.personnel = personnel;
 	}
-
-	/*public List<Bug> getBugs() {
-		return bugs;
-	}
-
-	public void setBugs(List<Bug> bugs) {
-		this.bugs = bugs;
-	}
-
-	public List<Feature> getFeatures() {
-		return features;
-	}
-
-	public void setCommits(List<Commit> commits) {
-		this.commits = commits;
-	}
-	
-	public List<Commit> getCommits() {
-		return commits;
-	}
-
-	public void setFeatures(List<Feature> features) {
-		this.features = features;
-	}*/
 
 	public ObjectId getId() {
 		return id;
