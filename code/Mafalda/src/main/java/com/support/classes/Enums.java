@@ -1,5 +1,9 @@
 package com.support.classes;
 
+/**
+ * @author teo
+ *
+ */
 public class Enums {
 	public enum Role{
 		TESTER,

@@ -9,6 +9,10 @@ import org.springframework.data.annotation.Id;
 import com.support.classes.Enums.Priority;
 import com.support.classes.Enums.State;
 
+/**
+ * @author teo
+ *
+ */
 public class Bug {
 	
 	@Id
@@ -28,6 +32,21 @@ public class Bug {
 	private State state;
 	private ObjectId projectId;
 	
+	/**
+	 * @param priority
+	 * @param tags
+	 * @param description
+	 * @param steps
+	 * @param registration
+	 * @param visible
+	 * @param branch
+	 * @param username
+	 * @param personnelIds
+	 * @param interested
+	 * @param commitIds
+	 * @param state
+	 * @param projectId
+	 */
 	public Bug( 
 			 Priority priority,
 			 List<String> tags,

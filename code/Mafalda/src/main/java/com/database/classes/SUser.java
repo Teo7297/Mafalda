@@ -7,6 +7,10 @@ import com.database.queries.QueriesI;
 
 //created during user registration
 
+/**
+ * @author teo
+ *
+ */
 public class SUser {
 	@Id
 	private ObjectId id;
@@ -15,6 +19,11 @@ public class SUser {
 	private String password;
 	private String email;
 	
+	/**
+	 * @param username
+	 * @param password
+	 * @param email
+	 */
 	public SUser(String username, String password, String email) {
 		this.username = username;
 		this.email = email;

@@ -5,6 +5,10 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException; 
 
 // Java program to calculate MD5 hash value 
+/**
+ * @author teo
+ *
+ */
 public class MD5 { 
 	public static String getMd5(String input) 
 	{ 

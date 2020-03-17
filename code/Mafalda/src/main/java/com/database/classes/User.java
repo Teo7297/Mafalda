@@ -6,6 +6,10 @@ import java.util.List;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 
+/**
+ * @author teo
+ *
+ */
 public class User {
 
 	@Id
@@ -15,6 +19,10 @@ public class User {
 	private String email;
 	private List<Integer> projects;
 	
+	/**
+	 * @param username
+	 * @param email
+	 */
 	public User(String username, String email) {
 		this.username = username;
 		this.email = email;

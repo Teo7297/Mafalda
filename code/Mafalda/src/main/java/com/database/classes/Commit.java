@@ -6,6 +6,10 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import com.support.classes.Enums.Priority;
 
+/**
+ * @author teo
+ *
+ */
 public class Commit {
 	
 	@Id
@@ -17,6 +21,13 @@ public class Commit {
 	private Date date;
 	private ObjectId projectId; 
 	
+	/**
+	 * @param username
+	 * @param message
+	 * @param priority
+	 * @param date
+	 * @param projectId
+	 */
 	public Commit(
 			String username,
 			String message,

@@ -5,6 +5,10 @@ import java.util.List;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 
+/**
+ * @author teo
+ *
+ */
 public class Project {
 	
 	@Id
@@ -19,6 +23,13 @@ public class Project {
 	//private List<Feature> features;
 	//private List<Commit> commits;
 	
+	/**
+	 * @param owner
+	 * @param name
+	 * @param description
+	 * @param referral
+	 * @param personnel
+	 */
 	public Project(
 			String owner,
 			String name,

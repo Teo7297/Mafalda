@@ -6,6 +6,10 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import com.support.classes.Enums.Role;
 
+/**
+ * @author teo
+ *
+ */
 public class Personnel {
 	
 	@Id
@@ -16,6 +20,11 @@ public class Personnel {
 	private Date assignment;
 	private Date removed;
 	
+	/**
+	 * @param username
+	 * @param role
+	 * @param assignment
+	 */
 	public Personnel(String username, Role role, Date assignment) {
 		this.username = username;
 		this.role = role;

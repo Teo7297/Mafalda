@@ -9,6 +9,10 @@ import org.springframework.data.annotation.Id;
 import com.support.classes.Enums.Priority;
 import com.support.classes.Enums.State;
 
+/**
+ * @author teo
+ *
+ */
 public class Feature {
 	
 	@Id
@@ -26,6 +30,18 @@ public class Feature {
 	private ObjectId projectId;
 	
 	
+	/**
+	 * @param priority
+	 * @param description
+	 * @param username
+	 * @param registration
+	 * @param visible
+	 * @param deployment
+	 * @param personnelIds
+	 * @param commitsIds
+	 * @param state
+	 * @param projectId
+	 */
 	public Feature(
 			Priority priority,
 			String description,

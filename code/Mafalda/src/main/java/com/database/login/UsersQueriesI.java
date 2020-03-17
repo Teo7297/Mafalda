@@ -2,6 +2,10 @@ package com.database.login;
 
 import com.database.classes.SUser;
 
+/**
+ * @author teo
+ *
+ */
 public class UsersQueriesI implements UsersQueries{
 	
 	//TODO collegare ad un database secondario

@@ -19,6 +19,10 @@ import com.database.classes.User;
 //TODO add wrong values exceptions
 
 
+/**
+ * @author teo
+ *
+ */
 public class QueriesI implements Queries {
 
 	private static MongoOperations mongoOperation;
