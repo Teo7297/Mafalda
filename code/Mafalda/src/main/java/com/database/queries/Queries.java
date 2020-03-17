@@ -5,6 +5,7 @@ import org.bson.types.ObjectId;
 import com.database.classes.Bug;
 import com.database.classes.Commit;
 import com.database.classes.Feature;
+import com.database.classes.LoginToken;
 import com.database.classes.Project;
 import com.database.classes.User;
 
@@ -45,6 +46,11 @@ public interface Queries {
 	 * @return an Array of Commit objects
 	 */
 	public Commit[] getCommits(ObjectId projectId);
+	/**
+	 * @param tokenId
+	 * @return the specified token
+	 */
+	public LoginToken getLoginToken(ObjectId tokenId);
 
 	//setters
 	/**
@@ -67,11 +73,12 @@ public interface Queries {
 	 * @param project
 	 */
 	public void addProject(Project project);
+	/**
+	 * @param loginToken
+	 */
+	public void addLoginToken(LoginToken loginToken);
 	
 	//removers
-	/**
-	 * @param user
-	 */
 	/**
 	 * @param user
 	 */
@@ -104,6 +111,10 @@ public interface Queries {
 	 * @param commit
 	 */
 	public void removeCommit(Commit commit);
+	/**
+	 * @param loginToken
+	 */
+	public void removeLoginToken(LoginToken loginToken);
 	
 	//updaters
 	/**
@@ -131,7 +142,13 @@ public interface Queries {
 	 * @param commits
 	 */
 	public void updateCommits(ObjectId projectId, Commit[] commits);
+	/**
+	 * @param tokenId
+	 * @param newToken
+	 */
+	public void updateLoginToken(ObjectId tokenId, LoginToken newToken);
 	
+	//drop collections
 	/**
 	 * @param cls
 	 */

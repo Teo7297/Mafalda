@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.support.classes.Enums.Priority;
 import com.support.classes.Enums.State;
@@ -13,6 +14,7 @@ import com.support.classes.Enums.State;
  * @author teo
  *
  */
+@Document
 public class Feature {
 	
 	@Id

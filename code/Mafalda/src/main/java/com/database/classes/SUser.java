@@ -2,6 +2,7 @@ package com.database.classes;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.database.queries.QueriesI;
 
@@ -11,6 +12,7 @@ import com.database.queries.QueriesI;
  * @author teo
  *
  */
+@Document
 public class SUser {
 	@Id
 	private ObjectId id;

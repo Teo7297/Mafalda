@@ -13,6 +13,7 @@ import com.application.mafalda.Config;
 import com.database.classes.Bug;
 import com.database.classes.Commit;
 import com.database.classes.Feature;
+import com.database.classes.LoginToken;
 import com.database.classes.Project;
 import com.database.classes.User;
 
@@ -74,6 +75,11 @@ public class QueriesI implements Queries {
 		List<Commit> result = (List<Commit>) mongoOperation.find(query, Commit.class);
 		return result.toArray(new Commit[result.size()]);
 	}
+	
+	@Override
+	public LoginToken getLoginToken(ObjectId tokenId) {
+		return mongoOperation.findById(tokenId, LoginToken.class);
+	}
 
 	@Override
 	public void addUser(User user) {
@@ -104,6 +110,12 @@ public class QueriesI implements Queries {
 	public void removeUser(User user) {
 		mongoOperation.remove(user);
 	}
+	
+	@Override
+	public void addLoginToken(LoginToken loginToken) {
+		mongoOperation.insert(loginToken);
+		
+	}
 
 	@Override
 	public void removeAllBugs(ObjectId projectId) {
@@ -128,25 +140,31 @@ public class QueriesI implements Queries {
 
 	@Override
 	public void removeProject(Project project) {
-		mongoOperation.remove(project, "project");
+		mongoOperation.remove(project);
 	}
 
 	@Override
 	public void removeBug(Bug bug) {
-		mongoOperation.remove(bug, "bug");
+		mongoOperation.remove(bug);
 
 	}
 
 	@Override
 	public void removeFeature(Feature feature) {
-		mongoOperation.remove(feature, "feature");
+		mongoOperation.remove(feature);
 
 	}
 
 	@Override
 	public void removeCommit(Commit commit) {
-		mongoOperation.remove(commit, "commit");
+		mongoOperation.remove(commit);
 
+	}
+	
+	@Override
+	public void removeLoginToken(LoginToken loginToken) {
+		mongoOperation.remove(loginToken);
+		
 	}
 
 	@Override
@@ -176,6 +194,12 @@ public class QueriesI implements Queries {
 	public void updateCommits(ObjectId projectId, Commit[] commits) {
 		// TODO Auto-generated method stub
 
+	}
+	
+	@Override
+	public void updateLoginToken(ObjectId tokenId, LoginToken newToken) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override

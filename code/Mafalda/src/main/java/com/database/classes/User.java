@@ -5,11 +5,13 @@ import java.util.List;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * @author teo
  *
  */
+@Document
 public class User {
 
 	@Id
@@ -17,6 +19,7 @@ public class User {
 	
 	private String username;
 	private String email;
+	private ObjectId loginTokenId;
 	private List<Integer> projects;
 	
 	/**
@@ -27,6 +30,7 @@ public class User {
 		this.username = username;
 		this.email = email;
 		this.projects = new ArrayList<>();
+		this.loginTokenId = null;
 		this.id = new ObjectId();
 	}
 	
@@ -42,6 +46,18 @@ public class User {
 		return email;
 	}
 	
+	public ObjectId getLoginTokenId() {
+		return loginTokenId;
+	}
+
+	public void setLoginToken(ObjectId loginTokenId) {
+		this.loginTokenId = loginTokenId;
+	}
+	
+	public void removeLoginToken() {
+		this.loginTokenId = null;
+	}
+
 	public void addProject(int projectId) {
 		projects.add(projectId);
 	}
