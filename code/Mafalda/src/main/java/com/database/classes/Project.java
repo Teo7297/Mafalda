@@ -2,12 +2,13 @@ package com.database.classes;
 
 import java.util.List;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 
 public class Project {
 	
 	@Id
-	private int id;
+	private ObjectId id;
 	
 	private String owner;		//username
 	private String name;
@@ -31,6 +32,7 @@ public class Project {
 		this.description = description;
 		this.referral = referral;
 		this.personnel = personnel;
+		this.id = new ObjectId();
 		//this.bugs = new ArrayList<>();
 		//this.features = new ArrayList<>();
 		//this.commits = new ArrayList<>();
@@ -85,13 +87,10 @@ public class Project {
 		this.features = features;
 	}*/
 
-	public int getId() {
+	public ObjectId getId() {
 		return id;
 	}
 	
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public String getOwner() {
 		return owner;

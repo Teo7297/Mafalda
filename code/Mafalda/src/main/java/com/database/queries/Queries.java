@@ -1,5 +1,7 @@
 package com.database.queries;
 
+import org.bson.types.ObjectId;
+
 import com.database.classes.Bug;
 import com.database.classes.Commit;
 import com.database.classes.Feature;
@@ -8,12 +10,12 @@ import com.database.classes.User;
 
 public interface Queries {
 	//getters
-	public Project getProject(int projectId);
-	public Bug[] getBugs(int projectId);
+	public Project getProject(ObjectId projectId);
+	public Bug[] getBugs(ObjectId projectId);
 	public User getUser(String email);
-	public User getUser(int id);
-	public Feature[] getFeatures(int projectId);
-	public Commit[] getCommits(int projectId);
+	public User getUser(ObjectId id);
+	public Feature[] getFeatures(ObjectId projectId);
+	public Commit[] getCommits(ObjectId projectId);
 
 	//setters
 	public void addUser(User user);
@@ -24,22 +26,22 @@ public interface Queries {
 	
 	//removers
 	public void removeUser(User user);
-	public void removeAllBugs(int projectId);
+	public void removeAllBugs(ObjectId projectId);
 	public void removeBug(Bug bug);
-	public void removeAllFeatures(int projectId);
-	public void removeAllProjects();
+	public void removeAllFeatures(ObjectId projectId);
 	public void removeFeature(Feature feature);
 	public void removeProject(Project project);
-	public void removeAllCommits(int projectId);
+	public void removeAllCommits(ObjectId projectId);
 	public void removeCommit(Commit commit);
 	
 	//updaters
-	public void updateUser(int id, User newUser);
-	public void updateBugs(int projectId, Bug[] bugs);
-	public void updateFeatures(int projectId, Feature[] feature);
-	public void updateProject(int projectId, Project project);
-	public void updateCommits(int projectId, Commit[] commits);
+	public void updateUser(ObjectId id, User newUser);
+	public void updateBugs(ObjectId projectId, Bug[] bugs);
+	public void updateFeatures(ObjectId projectId, Feature[] feature);
+	public void updateProject(ObjectId projectId, Project project);
+	public void updateCommits(ObjectId projectId, Commit[] commits);
 	
 	public void dropCollection(Class<?> cls);
+	public void dropCollection(String collectionName);
 	
 }

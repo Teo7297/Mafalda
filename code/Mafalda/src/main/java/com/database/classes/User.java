@@ -3,12 +3,13 @@ package com.database.classes;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 
 public class User {
 
 	@Id
-	private int id;
+	private ObjectId id;
 	
 	private String username;
 	private String email;
@@ -18,14 +19,11 @@ public class User {
 		this.username = username;
 		this.email = email;
 		this.projects = new ArrayList<>();
+		this.id = new ObjectId();
 	}
 	
-	public int getId() {
+	public ObjectId getId() {
 		return id;
-	}
-	
-	public void setId(int id) {
-		this.id = id;
 	}
 	
 	public String getUsername() {

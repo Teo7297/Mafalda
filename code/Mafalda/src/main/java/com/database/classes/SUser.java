@@ -1,5 +1,6 @@
 package com.database.classes;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 
 import com.database.queries.QueriesI;
@@ -8,7 +9,7 @@ import com.database.queries.QueriesI;
 
 public class SUser {
 	@Id
-	private int id;
+	private ObjectId id;
 	
 	private String username;
 	private String password;
@@ -18,17 +19,15 @@ public class SUser {
 		this.username = username;
 		this.email = email;
 		this.password = password;
+		this.id = new ObjectId();
 	
 		//create User and add it to main db
 		User user = new User(username, email);
 		QueriesI query = new QueriesI();
 		query.addUser(user);
 	}
-	public int getId() {
+	public ObjectId getId() {
 		return id;
 	}
 	
-	public void setId(int id) {
-		this.id = id;
-	}
 }

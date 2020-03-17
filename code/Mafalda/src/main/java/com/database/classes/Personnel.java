@@ -1,13 +1,15 @@
 package com.database.classes;
 
 import java.util.Date;
+
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import com.support.classes.Enums.Role;
 
 public class Personnel {
 	
 	@Id
-	private int id;
+	private ObjectId id;
 	
 	private String username;
 	private Role role;
@@ -18,13 +20,10 @@ public class Personnel {
 		this.username = username;
 		this.role = role;
 		this.assignment = assignment;
+		this.id = new ObjectId();
 	}
 	
 	
-	
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public Role getRole() {
 		return role;
@@ -42,7 +41,7 @@ public class Personnel {
 		this.removed = removed;
 	}
 
-	public int getId() {
+	public ObjectId getId() {
 		return id;
 	}
 

@@ -3,6 +3,7 @@ package com.database.classes;
 import java.util.Date;
 import java.util.List;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 
 import com.support.classes.Enums.Priority;
@@ -11,7 +12,7 @@ import com.support.classes.Enums.State;
 public class Feature {
 	
 	@Id
-	private int id;
+	private ObjectId id;
 	
 	private Priority priority;
 	private String description;
@@ -22,7 +23,7 @@ public class Feature {
 	private List<Integer> personnelIds;
 	private List<Integer> commitsIds;
 	private State state;
-	private int projectId;
+	private ObjectId projectId;
 	
 	
 	public Feature(
@@ -35,7 +36,7 @@ public class Feature {
 			List<Integer> personnelIds,
 			List<Integer> commitsIds,
 			State state,
-			int projectId) {
+			ObjectId projectId) {
 		
 		this.priority = priority;
 		this.description = description;
@@ -47,15 +48,11 @@ public class Feature {
 		this.commitsIds = commitsIds;
 		this.state = state;
 		this.projectId = projectId;
+		this.id = new ObjectId();
 		
 	}
 
 
-	
-	
-	public void setId(int id) {
-		this.id = id;
-	}
 	
 	public Priority getPriority() {
 		return priority;
@@ -113,7 +110,7 @@ public class Feature {
 		this.state = state;
 	}
 
-	public int getId() {
+	public ObjectId getId() {
 		return id;
 	}
 
@@ -124,7 +121,7 @@ public class Feature {
 	public Date getRegistration() {
 		return registration;
 	}
-	public int getProjectId() {
+	public ObjectId getProjectId() {
 		return projectId;
 	}
 	

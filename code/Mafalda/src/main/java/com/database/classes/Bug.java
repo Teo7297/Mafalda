@@ -3,6 +3,7 @@ package com.database.classes;
 import java.util.Date;
 import java.util.List;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 
 import com.support.classes.Enums.Priority;
@@ -11,7 +12,7 @@ import com.support.classes.Enums.State;
 public class Bug {
 	
 	@Id
-	private int id;
+	private ObjectId id;
 	
 	private Priority priority;
 	private List<String> tags;
@@ -25,7 +26,7 @@ public class Bug {
 	private List<String> interested;
 	private List<Integer> commitIds;
 	private State state;
-	private int projectId;
+	private ObjectId projectId;
 	
 	public Bug( 
 			 Priority priority,
@@ -35,12 +36,12 @@ public class Bug {
 			 Date registration,
 			 boolean visible,
 			 String branch,
-			 User user,
+			 String username,
 			 List<Integer> personnelIds,
 			 List<String> interested,
 			 List<Integer> commitIds,
 			 State state,
-			 int projectId) {
+			 ObjectId projectId) {
 		
 		this.priority = priority;
 		this.tags = tags;
@@ -49,20 +50,16 @@ public class Bug {
 		this.registration = registration;
 		this.visible = visible;
 		this.branch = branch;
-		this.username = user.getUsername();
+		this.username = username;
 		this.personnelIds = personnelIds;
 		this.interested = interested;
 		this.commitIds = commitIds;
 		this.state = state;
 		this.projectId = projectId;
+		this.id = new ObjectId();
 		
 	}
 	
-	
-	
-	public void setId(int id) {
-		this.id = id;
-	}
 	
 	public Priority getPriority() {
 		return priority;
@@ -144,7 +141,7 @@ public class Bug {
 		this.state = state;
 	}
 
-	public int getId() {
+	public ObjectId getId() {
 		return id;
 	}
 
@@ -155,7 +152,7 @@ public class Bug {
 	public String getUsername() {
 		return username;
 	}
-	public int getProjectId() {
+	public ObjectId getProjectId() {
 		return projectId;
 	}
 }

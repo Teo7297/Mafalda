@@ -2,6 +2,7 @@ package com.database.queries;
 
 import java.util.List;
 
+import org.bson.types.ObjectId;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -13,6 +14,9 @@ import com.database.classes.Commit;
 import com.database.classes.Feature;
 import com.database.classes.Project;
 import com.database.classes.User;
+
+//TODO add wrong values exceptions
+
 
 public class QueriesI implements Queries {
 
@@ -26,9 +30,9 @@ public class QueriesI implements Queries {
 	}
 
 	@Override
-	public Project getProject(int projectId) {
+	public Project getProject(ObjectId projectId) {
 		query = new Query();
-		query.addCriteria(Criteria.where("id").is(projectId).in("Project"));
+		query.addCriteria(Criteria.where("_id").is(projectId));
 		List<Project> result = (List<Project>) mongoOperation.find(query, Project.class);
 		if (result.size() == 1) {
 			return result.get(0);
@@ -38,17 +42,18 @@ public class QueriesI implements Queries {
 	}
 
 	@Override
-	public Bug[] getBugs(int projectId) {
+	public Bug[] getBugs(ObjectId projectId) {
 		query = new Query();
-		query.addCriteria(Criteria.where("id").is(projectId).in("Bug"));
+		query.addCriteria(Criteria.where("projectId").is(projectId));
 		List<Bug> result = (List<Bug>) mongoOperation.find(query, Bug.class);
-		return (Bug[]) result.toArray();
+		Bug[] resArray = new Bug[result.size()]; 
+		return result.toArray(resArray);
 	}
 
 	@Override
 	public User getUser(String email) {
 		query = new Query();
-		query.addCriteria(Criteria.where("email").is(email).in("User"));
+		query.addCriteria(Criteria.where("email").is(email));
 		List<User> result = (List<User>) mongoOperation.find(query, User.class);
 		if (result.size() == 1) {
 			return result.get(0);
@@ -58,9 +63,9 @@ public class QueriesI implements Queries {
 	}
 
 	@Override
-	public User getUser(int id) {
+	public User getUser(ObjectId id) {
 		query = new Query();
-		query.addCriteria(Criteria.where("id").is(id).in("User"));
+		query.addCriteria(Criteria.where("_id").is(id));
 		List<User> result = (List<User>) mongoOperation.find(query, User.class);
 		if (result.size() == 1) {
 			return result.get(0);
@@ -70,19 +75,21 @@ public class QueriesI implements Queries {
 	}
 
 	@Override
-	public Feature[] getFeatures(int projectId) {
+	public Feature[] getFeatures(ObjectId projectId) {
 		query = new Query();
-		query.addCriteria(Criteria.where("id").is(projectId).in("Feature"));
+		query.addCriteria(Criteria.where("_id").is(projectId));
 		List<Feature> result = (List<Feature>) mongoOperation.find(query, Feature.class);
-		return (Feature[]) result.toArray();
+		Feature[] resArray = new Feature[result.size()];
+		return result.toArray(resArray);
 	}
 
 	@Override
-	public Commit[] getCommits(int projectId) {
+	public Commit[] getCommits(ObjectId projectId) {
 		query = new Query();
-		query.addCriteria(Criteria.where("id").is(projectId).in("Commit"));
+		query.addCriteria(Criteria.where("_id").is(projectId));
 		List<Commit> result = (List<Commit>) mongoOperation.find(query, Commit.class);
-		return (Commit[]) result.toArray();
+		Commit[] resArray = new Commit[result.size()];
+		return result.toArray(resArray);
 	}
 
 	@Override
@@ -116,81 +123,76 @@ public class QueriesI implements Queries {
 	}
 
 	@Override
-	public void removeAllBugs(int projectId) {
+	public void removeAllBugs(ObjectId projectId) {
 		query = new Query();
-		query.addCriteria(Criteria.where("id").is(projectId).in("Bug"));
+		query.addCriteria(Criteria.where("projectId").is(projectId));
 		mongoOperation.findAllAndRemove(query, Bug.class);
 	}
 
 	@Override
-	public void removeAllFeatures(int projectId) {
+	public void removeAllFeatures(ObjectId projectId) {
 		query = new Query();
-		query.addCriteria(Criteria.where("id").is(projectId).in("Feature"));
+		query.addCriteria(Criteria.where("projectId").is(projectId));
 		mongoOperation.findAllAndRemove(query, Feature.class);
 	}
 
 	@Override
-	public void removeAllCommits(int projectId) {
+	public void removeAllCommits(ObjectId projectId) {
 		query = new Query();
-		query.addCriteria(Criteria.where("id").is(projectId).in("Commit"));
+		query.addCriteria(Criteria.where("projectId").is(projectId));
 		mongoOperation.findAllAndRemove(query, Commit.class);
 	}
 
 	@Override
-	public void removeAllProjects() {
-		mongoOperation.dropCollection("Project"); // deletes all projects in the db, only for testing
-	} // TODO: REMOVE BEFORE RELEASE
-
-	@Override
 	public void removeProject(Project project) {
-		mongoOperation.remove(project, "Project");
+		mongoOperation.remove(project, "project");
 	}
 
 	@Override
 	public void removeBug(Bug bug) {
-		mongoOperation.remove(bug, "Bug");
+		mongoOperation.remove(bug, "bug");
 
 	}
 
 	@Override
 	public void removeFeature(Feature feature) {
-		mongoOperation.remove(feature, "Feature");
+		mongoOperation.remove(feature, "feature");
 
 	}
 
 	@Override
 	public void removeCommit(Commit commit) {
-		mongoOperation.remove(commit, "Commit");
+		mongoOperation.remove(commit, "commit");
 
 	}
 
 	@Override
-	public void updateUser(int id, User newUser) {
+	public void updateUser(ObjectId id, User newUser) {
 		query = new Query();
-		query.addCriteria(Criteria.where("id").is(id).in("User"));
+		query.addCriteria(Criteria.where("_id").is(id));
 		mongoOperation.findAndReplace(query, newUser);
 	}
 
 	@Override
-	public void updateBugs(int projectId, Bug[] bugs) {
+	public void updateBugs(ObjectId projectId, Bug[] bugs) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void updateFeatures(int projectId, Feature[] feature) {
+	public void updateFeatures(ObjectId projectId, Feature[] feature) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void updateProject(int projectId, Project project) {
+	public void updateProject(ObjectId projectId, Project project) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void updateCommits(int projectId, Commit[] commits) {
+	public void updateCommits(ObjectId projectId, Commit[] commits) {
 		// TODO Auto-generated method stub
 
 	}
@@ -198,6 +200,11 @@ public class QueriesI implements Queries {
 	@Override
 	public void dropCollection(Class<?> cls) {
 		mongoOperation.dropCollection(cls);
+	}
+	
+	@Override
+	public void dropCollection(String collectionName) {
+		mongoOperation.dropCollection(collectionName);
 	}
 
 }
